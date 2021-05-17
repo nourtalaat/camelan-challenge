@@ -1,0 +1,434 @@
+{
+	"info": {
+		"_postman_id": "66c07a8b-e743-4c8a-ba0f-49563f7fc17a",
+		"name": "camelan-challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "pet/id/bid",
+			"item": [
+				{
+					"name": "not authenticated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/pet/1/bid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"pet",
+								"1",
+								"bid"
+							],
+							"query": [
+								{
+									"key": "amount",
+									"value": "500",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "not authorized",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik83WTBqSl9IUWRtMVlYTzNzbkdzZyJ9.eyJodHRwczovL2xvY2FsaG9zdC9lbWFpbCI6Im5vdGJpZGRlckBlbWFpbC5jb20iLCJpc3MiOiJodHRwczovL2Rldi14anZ5MzJmcy5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBhMjlkYTBhYjM1OWYwMDcxMjZhZjk5IiwiYXVkIjoiY2FtZWxhbl9jaGFsbGVuZ2UiLCJpYXQiOjE2MjEyNjk5MjMsImV4cCI6MTYyMTM1NjMyMywiYXpwIjoiUGZWcmd6c3p0bERkSThlanNGWVFCY0FYU3VZSFJxREoiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbXX0.r-NrEP9AsFYnF6De8s-GlOojcvxZ669HHBXAn4M01FrN5Yl9ZPhX8GqjA-ujQQLxIzYhWKYMDZ8yNVoKs6iW_yrcd98aLaaar3SzoNLSnX4up2ps9IRVcQhUNDm_hwff7JK0Cn57juF-Rt87zLIm2lxTFoprJeUbUiqV0rcmvw5RRIvrJiaWSvLZN6eDAXj7FGaCw2h6C-zJgGX6NmoB-dhGKFHH5R8mgb2Ra67HHgOB0av1gZ-BvRgSS_VnjDhSD1tRwTO5OSumLgYqqyCc3_6_1QG8f76_9wtDemAIdmrYP3RN0uVDk9wDm9e-1w1dEk70Dcf_cndamH34Z9MWdw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/pet/1/bid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"pet",
+								"1",
+								"bid"
+							],
+							"query": [
+								{
+									"key": "amount",
+									"value": "500",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "malformed post request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik83WTBqSl9IUWRtMVlYTzNzbkdzZyJ9.eyJodHRwczovL2xvY2FsaG9zdC9lbWFpbCI6ImJpZGRlckBlbWFpbC5jb20iLCJpc3MiOiJodHRwczovL2Rldi14anZ5MzJmcy5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBhMjlkZTY5NjllNzIwMDY4YTkwNWFhIiwiYXVkIjoiY2FtZWxhbl9jaGFsbGVuZ2UiLCJpYXQiOjE2MjEyNzAwNDksImV4cCI6MTYyMTM1NjQ0OSwiYXpwIjoiUGZWcmd6c3p0bERkSThlanNGWVFCY0FYU3VZSFJxREoiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbInBsYWNlOmJpZCJdfQ.wFWUNDYyMQHfE_apdVG2zy5gyLkPtoBwHQXjzc5B6dSfK9JxAjlUvev_bAt_VLx5MxNIWjbOUF5npBC6Uhis2gfHTeNQzVyW-g0qVkUm_YFxVX-MY-jj4Yikv79AIUPg73xFBBDUY0ddntKt0PhtoyA7bQdUYPUU1ZB7JPvwT-HJMVDHiVAJK46OKo5nElsKE4hqycGOVWPb0_locvnrx1syHks9w5lmOVqv8_FuikOu5X5IVKsckd7ZTl9SMsJi7iJq7Sv-qiBpDi3u8lOoblS3MogUqtGRhIcYCb58kXLLDJ020QhXX2sVtZB8YGMNGEPo4VTQhCu8LAmO77qklQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": \"invalid_value\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/pet/1/bid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"pet",
+								"1",
+								"bid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik83WTBqSl9IUWRtMVlYTzNzbkdzZyJ9.eyJodHRwczovL2xvY2FsaG9zdC9lbWFpbCI6ImJpZGRlckBlbWFpbC5jb20iLCJpc3MiOiJodHRwczovL2Rldi14anZ5MzJmcy5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBhMjlkZTY5NjllNzIwMDY4YTkwNWFhIiwiYXVkIjoiY2FtZWxhbl9jaGFsbGVuZ2UiLCJpYXQiOjE2MjEyNzAwNDksImV4cCI6MTYyMTM1NjQ0OSwiYXpwIjoiUGZWcmd6c3p0bERkSThlanNGWVFCY0FYU3VZSFJxREoiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbInBsYWNlOmJpZCJdfQ.wFWUNDYyMQHfE_apdVG2zy5gyLkPtoBwHQXjzc5B6dSfK9JxAjlUvev_bAt_VLx5MxNIWjbOUF5npBC6Uhis2gfHTeNQzVyW-g0qVkUm_YFxVX-MY-jj4Yikv79AIUPg73xFBBDUY0ddntKt0PhtoyA7bQdUYPUU1ZB7JPvwT-HJMVDHiVAJK46OKo5nElsKE4hqycGOVWPb0_locvnrx1syHks9w5lmOVqv8_FuikOu5X5IVKsckd7ZTl9SMsJi7iJq7Sv-qiBpDi3u8lOoblS3MogUqtGRhIcYCb58kXLLDJ020QhXX2sVtZB8YGMNGEPo4VTQhCu8LAmO77qklQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/pet/1/bid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"pet",
+								"1",
+								"bid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "duplicate bid",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 409\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik83WTBqSl9IUWRtMVlYTzNzbkdzZyJ9.eyJodHRwczovL2xvY2FsaG9zdC9lbWFpbCI6ImJpZGRlckBlbWFpbC5jb20iLCJpc3MiOiJodHRwczovL2Rldi14anZ5MzJmcy5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBhMjlkZTY5NjllNzIwMDY4YTkwNWFhIiwiYXVkIjoiY2FtZWxhbl9jaGFsbGVuZ2UiLCJpYXQiOjE2MjEyNzAwNDksImV4cCI6MTYyMTM1NjQ0OSwiYXpwIjoiUGZWcmd6c3p0bERkSThlanNGWVFCY0FYU3VZSFJxREoiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbInBsYWNlOmJpZCJdfQ.wFWUNDYyMQHfE_apdVG2zy5gyLkPtoBwHQXjzc5B6dSfK9JxAjlUvev_bAt_VLx5MxNIWjbOUF5npBC6Uhis2gfHTeNQzVyW-g0qVkUm_YFxVX-MY-jj4Yikv79AIUPg73xFBBDUY0ddntKt0PhtoyA7bQdUYPUU1ZB7JPvwT-HJMVDHiVAJK46OKo5nElsKE4hqycGOVWPb0_locvnrx1syHks9w5lmOVqv8_FuikOu5X5IVKsckd7ZTl9SMsJi7iJq7Sv-qiBpDi3u8lOoblS3MogUqtGRhIcYCb58kXLLDJ020QhXX2sVtZB8YGMNGEPo4VTQhCu8LAmO77qklQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\": 500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/pet/1/bid",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"pet",
+								"1",
+								"bid"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pet/id/listBids",
+			"item": [
+				{
+					"name": "not authenticated",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 401\", function () {\r",
+									"    pm.response.to.have.status(401);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/pet/1/listBids",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"pet",
+								"1",
+								"listBids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "not pet owner",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 403\", function () {\r",
+									"    pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik83WTBqSl9IUWRtMVlYTzNzbkdzZyJ9.eyJodHRwczovL2xvY2FsaG9zdC9lbWFpbCI6ImJpZGRlckBlbWFpbC5jb20iLCJpc3MiOiJodHRwczovL2Rldi14anZ5MzJmcy5ldS5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjBhMjlkZTY5NjllNzIwMDY4YTkwNWFhIiwiYXVkIjoiY2FtZWxhbl9jaGFsbGVuZ2UiLCJpYXQiOjE2MjEyNzAwNDksImV4cCI6MTYyMTM1NjQ0OSwiYXpwIjoiUGZWcmd6c3p0bERkSThlanNGWVFCY0FYU3VZSFJxREoiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbInBsYWNlOmJpZCJdfQ.wFWUNDYyMQHfE_apdVG2zy5gyLkPtoBwHQXjzc5B6dSfK9JxAjlUvev_bAt_VLx5MxNIWjbOUF5npBC6Uhis2gfHTeNQzVyW-g0qVkUm_YFxVX-MY-jj4Yikv79AIUPg73xFBBDUY0ddntKt0PhtoyA7bQdUYPUU1ZB7JPvwT-HJMVDHiVAJK46OKo5nElsKE4hqycGOVWPb0_locvnrx1syHks9w5lmOVqv8_FuikOu5X5IVKsckd7ZTl9SMsJi7iJq7Sv-qiBpDi3u8lOoblS3MogUqtGRhIcYCb58kXLLDJ020QhXX2sVtZB8YGMNGEPo4VTQhCu8LAmO77qklQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/pet/1/listBids",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"pet",
+								"1",
+								"listBids"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "success",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik83WTBqSl9IUWRtMVlYTzNzbkdzZyJ9.eyJodHRwczovL2xvY2FsaG9zdC9lbWFpbCI6InBldG93bmVyQGVtYWlsLmNvbSIsImlzcyI6Imh0dHBzOi8vZGV2LXhqdnkzMmZzLmV1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2MGEyOWU2YmYwZThmZjAwNjk3ZWEwYjAiLCJhdWQiOiJjYW1lbGFuX2NoYWxsZW5nZSIsImlhdCI6MTYyMTI3MDEyNiwiZXhwIjoxNjIxMzU2NTI2LCJhenAiOiJQZlZyZ3pzenRsRGRJOGVqc0ZZUUJjQVhTdVlIUnFESiIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOltdfQ.gcyt6b4noQ1zGaBsUnoxDKnJdvZ6rWEOGw7e_Z3ir8WlYjiIEkHAEhei2ziWdMWNgpk46pR34aJC07LzMi_iqQ1Gj6W_HJnDWGEFMPJ8eOPo0DZLseyRpQ1LNW3SZt3awdvdIKqEjlAYSNQgr30OO6PeR_t7gTRCNKqoQDKi3Kc-PU-Gy3m2mt2rlWRMheVp5Mx_9deJ9A-5h7Q_73r4YrRhtKtyAOPWas85oN1Yl5cHO17E94uGHYjL-cLMtTYpTl3oZDN1b0rh5-jnI29ixt-9-jmX6dYJj_eJocDMxziM9Ruc7faFkXqg_AEVy8EDPL0XsKgOhJsvpflfaYbLuw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/pet/1/listBids",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"pet",
+								"1",
+								"listBids"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

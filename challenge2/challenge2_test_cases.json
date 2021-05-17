@@ -1,0 +1,108 @@
+[
+	{
+		"case": "base case",
+		"input":
+			{
+				"n_items": 3,
+				"bidders": {
+								"John Doe": 100,
+								"John Smith": 500,
+								"Sara Conor": 280,
+								"Martin Fowler": 320
+							}
+			},
+		"expected_output":
+			{
+				"John Smith": 320,
+				"Martin Fowler": 280,
+				"Sara Conor": 100,
+				"John Doe": "Lost"
+			}
+	},
+	{
+		"case": "no bidders",
+		"input":
+			{
+				"n_items": 3,
+				"bidders": {}
+			},
+		"expected_output": "No Winners"
+	},
+	{
+		"case": "duplicate amounts",
+		"input":
+			{
+				"n_items": 3,
+				"bidders":  {
+								"John Doe": 500,
+								"John Smith": 500,
+								"Sara Conor": 280,
+								"Martin Fowler": 320
+							}
+			},
+		"expected_output": 
+							{
+								"John Doe": 500,
+								"John Smith": 320,
+								"Martin Fowler": 280,
+								"Sara Conor": "Lost"
+							}
+	},
+	{
+		"case": "n_items > len(bidders)",
+		"input":
+			{
+				"n_items": 5,
+				"bidders": 
+							{
+								"John Doe": 100,
+								"John Smith": 500,
+								"Sara Conor": 280,
+								"Martin Fowler": 320
+							}
+			},
+		"expected_output": 
+							{
+								"John Smith": 320,
+								"Martin Fowler": 280,
+								"Sara Conor": 100,
+								"John Doe": 100
+							}
+	},
+	{
+		"case": "n_items = 0",
+		"input":
+			{
+				"n_items": 0,
+				"bidders": 
+							{
+								"John Doe": 100,
+								"John Smith": 500,
+								"Sara Conor": 280,
+								"Martin Fowler": 320
+							}
+			},
+		"expected_output": 
+							{
+								"John Smith": "Lost",
+								"Martin Fowler": "Lost",
+								"Sara Conor": "Lost",
+								"John Doe": "Lost"
+							}
+	},
+	{
+		"case": "Negative amount",
+		"input":
+			{
+				"n_items": 0,
+				"bidders": 
+							{
+								"John Doe": -100,
+								"John Smith": 500,
+								"Sara Conor": 280,
+								"Martin Fowler": 320
+							}
+			},
+		"expected_output": "Invalid input"
+	}
+]
